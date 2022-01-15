@@ -8,6 +8,7 @@ var repeat = false;
 var shuffle = false;
 var userLoggedIn;
 var timer;
+var liked=false;
 
 $(document).click(function(click) {
 	var target = $(click.target);
@@ -39,6 +40,11 @@ $(document).on("change", "select.playlist", function() {
 	});
 });
 
+
+
+// function reloadNavBar(){
+// 	$("#navBarContainer", window.parent).load("includes/navBarContainer.php #navBarContainer");
+// }
 
 function updateEmail(emailClass) {
 	var emailValue = $("." + emailClass).val();
@@ -109,25 +115,20 @@ function removeFromPlaylist(button, playlistId) {
 
 function createPlaylist() {
 
-	var popup = prompt("Please enter the name of your playlist");
+	$.post("includes/handlers/ajax/createPlaylist.php", { username: userLoggedIn })
+	.done(function(error) {
+		if(error != "") {
+			alert(error);
+			return;
+		}
 
-	if(popup != null) {
+		//do something when ajax returns
+		openPage("library.php");
+	});
 
-		$.post("includes/handlers/ajax/createPlaylist.php", { name: popup, username: userLoggedIn })
-		.done(function(error) {
-
-			if(error != "") {
-				alert(error);
-				return;
-			}
-
-			//do something when ajax returns
-			openPage("yourMusic.php");
-		});
-
-	}
 
 }
+
 
 function deletePlaylist(playlistId) {
 	var prompt = confirm("Are you sure you want to delte this playlist?");
@@ -143,7 +144,7 @@ function deletePlaylist(playlistId) {
 			}
 
 			//do something when ajax returns
-			openPage("yourMusic.php");
+			openPage("library.php");
 		});
 
 

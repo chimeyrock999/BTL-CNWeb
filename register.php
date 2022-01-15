@@ -100,7 +100,6 @@
 					</p>
 
 					<p>
-						<?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
 						<?php echo $account->getError(Constants::$emailInvalid); ?>
 						<?php echo $account->getError(Constants::$emailTaken); ?>
 						<label for="email">Email</label>
@@ -109,7 +108,6 @@
 
 					<p>
 						<?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
-						<?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
 						<?php echo $account->getError(Constants::$passwordCharacters); ?>
 						<label for="password">Mật khẩu</label>
 						<input id="password" name="password" type="password" placeholder="" required>

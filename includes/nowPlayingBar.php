@@ -113,6 +113,11 @@ function setRepeat() {
 	$(".controlButton.repeat img").attr("src", "assets/images/icons/" + imageName);
 }
 
+function setLike(){
+	liked = !liked;
+	var imageName = liked ? "liked.png" : "like.png";
+	$(".controlButton.like img").attr("src", "assets/images/icons/" + imageName );
+}
 function setMute() {
 	audioElement.audio.muted = !audioElement.audio.muted;
 	var imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png";
@@ -312,15 +317,10 @@ function getIdOfPlayingSongs(){
 		</div>
 
 		<div id="nowPlayingRight">
-			<?php 
-				// if ($liked) {
-				// 	echo "<img src='assets\images\icons\liked.png' alt='' onclick='unlikeASong()'>";
-				// }
-				// else{
-				// 	echo "<img src='assets\images\icons\like.png' alt='' onclick='likeASong()'>";
-				// }
-			?>
 			<div class="volumeBar">
+				<button class="controlButton like" title="Like button" onclick="setLike()">
+					<img src="assets/images/icons/like.png" alt="Like">
+				</button>
 				<button class="controlButton volume" title="Volume button" onclick="setMute()">
 					<img src="assets/images/icons/volume.png" alt="Volume">
 				</button>

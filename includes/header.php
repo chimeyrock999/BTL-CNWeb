@@ -32,12 +32,12 @@
 	<title>Welcome to Live Music!</title>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="assets/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>  
 </head>
 
-<body>
 
+<body>
 	<div id="mainContainer">
 
 		<div id="topContainer">
@@ -47,3 +47,4 @@
 			<div id="mainViewContainer">
 
 				<div id="mainContent">
+

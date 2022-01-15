@@ -5,6 +5,7 @@
 		private $id;
 		private $name;
 		private $owner;
+		private $artworkPath;
 
 		public function __construct($con, $data) {
 
@@ -18,6 +19,8 @@
 			$this->id = $data['id'];
 			$this->name = $data['name'];
 			$this->owner = $data['owner'];
+			$this->artworkPath = $data['artworkPath'];
+
 		}
 
 		public function getId() {
@@ -31,6 +34,10 @@
 		public function getOwner() {
 			return $this->owner;
 		}
+		public function getArtworkPath(){
+			return $this->artworkPath;
+		}
+
 
 		public function getNumberOfSongs() {
 			$query = mysqli_query($this->con, "SELECT songId FROM playlistSongs WHERE playlistId='$this->id'");
@@ -52,8 +59,7 @@
 		}
 
 		public static function getPlaylistsDropdown($con, $username) {
-			$dropdown = '<select class="item playlist">
-							<option value="">Add to playlist</option>';
+			$dropdown = '<select class="item playlist">';
 
 			$query = mysqli_query($con, "SELECT id, name FROM playlists WHERE owner='$username'");
 			while($row = mysqli_fetch_array($query)) {

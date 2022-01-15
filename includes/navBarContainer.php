@@ -1,3 +1,5 @@
+
+
 <div id="navBarContainer">
             
     <nav class="navBar">
@@ -35,30 +37,30 @@
 
         </div>    
                        
-        <div class="group">
+        <div class="group" id="playlist-group">
 
-            <div class="navItem" onclick="openPage('createPlaylist.php')">
+            <div class="navItem" >
                 <div role ="link" tabIndex="0"  class="navItemlink">
-                    <span class="navItemTitle">Tạo playlist</span>
-                    <img src="assets/images/icons/addPlaylist.png" class="icon" alt="addPlayList">
+                    <span class="navItemTitle">Bài hát đã thích</span>
+                    <img src="assets\images\icons\liked.png" class="icon" alt="addPlayList">
                 </div>
             </div>
 
             <?php
-			    $username = $userLoggedIn->getUsername();
+			    // $username = $userLoggedIn->getUsername();
 
-			    $playlistsQuery = mysqli_query($con, "SELECT * FROM playlists WHERE owner='$username'");
+			    // $playlistsQuery = mysqli_query($con, "SELECT * FROM playlists WHERE owner='$username'");
 
-			    while($row = mysqli_fetch_array($playlistsQuery)) {
+			    // while($row = mysqli_fetch_array($playlistsQuery)) {
 
-				    $playlist = new Playlist($con, $row);
+				//     $playlist = new Playlist($con, $row);
 
-				    echo "<div class='navItem'>
-                            <span role='link' tabIndex='0' onclick='openPage(\"playlist.php?id=" . $playlist->getId() . "\")'
-                            class='navItemTitle'>"
-                            . $playlist->getName() . "</span>
-                            </div>";
-                }
+				//     echo "<div class='navItem'>
+                //             <span role='link' tabIndex='0' onclick='openPage(\"playlist.php?id=" . $playlist->getId() . "\")'
+                //             class='navItemTitle'>"
+                //             . $playlist->getName() . "</span>
+                //             </div>";
+                // }
 		    ?>
 
                

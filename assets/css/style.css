@@ -16,14 +16,19 @@ body {
     font-size: 14px;
     min-width: 720px;
 }
-
+.container-header{
+    position: relative;
+    width: calc(100% - 222px);
+    height: 70px;
+    left: 222px;
+}
 #userProfile {
     display: inline-block;
-    position: fixed;
+    position: absolute;
     min-width: 200px;
+    top: 20px;
     height: 40px;
     right: 15px;
-    top: 15px;
     border-radius: 20px;
     background-color: #404040;
 }
@@ -205,7 +210,7 @@ body {
 }
 
 .volumeBar {
-    width: 180px;
+    width: 200px;
     position: absolute;
     right: 0;
 }
@@ -215,21 +220,23 @@ body {
 }
 
 #topContainer {
+    top: 0px;
     min-height: 100%;
     width: 100%;
 }
 
 #navBarContainer {
     background-color: #000;
-    width: 220px;
+    width: 222px !important;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
 }
 
+
 .navBar {
-    padding: 25px;
+    padding: 20px 25px 25px 25px;
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
@@ -248,7 +255,7 @@ body {
 .logo h1{
     position: absolute;
     padding-left: 60px;
-    top: 31px;
+    top: 26px;
     font-size: 20px;
 }
 
@@ -288,7 +295,7 @@ body {
 .navItemTitle {
     position: absolute;
     top: 18px;
-    left: 50px;
+    left: 45px;
     color: #a0a0a0;
 }
 .navItem:hover .navItemTitle{
@@ -296,9 +303,10 @@ body {
 }
 
 #mainViewContainer {
-    margin-left: 220px;
+    position: relative;
+    left: 222px;
     padding-bottom: 90px;
-    width: calc(100% - 220px);
+    width: calc(100% - 222px);
 }
 
 #mainContent {
@@ -388,14 +396,20 @@ body {
 }
 
 .trackListRow .trackCount {
+    height: 100%;
     width: 8%;
     float: left;
+}
+.trackListRow .trackCount .trackNumber{
+    position: relative;
+    top: 4px;
 }
 
 .trackListRow .trackCount img {
     width: 20px;
+    top: 9px;
     visibility: hidden;
-    position: absolute;
+    position: relative;
     cursor: pointer;
 }
 
@@ -412,6 +426,7 @@ body {
 }
 
 .trackListRow .trackInfo {
+    position: relative;
     width: 75%;
     float: left;
 }
@@ -421,27 +436,34 @@ body {
 }
 
 .trackListRow .trackOptions {
-    width: 5%;
+    width: 8%;
+    height: 100%;
     float: left;
     text-align: right;
 }
 
 .trackListRow .trackOptions img {
-    width: 15px;
+    margin-top: 4px;
+    width: 25px;
     visibility: hidden;
 }
 
 .trackListRow:hover .trackOptions img {
-    width: 15px;
+    width: 25px;
     visibility: visible;
 }
 
 .trackListRow .trackDuration {
-    width: 12%;
+    position: relative;
+    width: 8%;
+    height: 100%;
     float: left;
     text-align: right;
+    padding-top: 9px;
 }
-
+.trackListRow .trackDuration span{
+    margin-left: 10px;
+}
 .trackListRow .trackInfo .trackName {
     color: #fff;
     margin-bottom: 6px;
@@ -486,10 +508,11 @@ body {
 
 .searchContainer {
     position: relative;
-    top: 15px;
+    left: 20px;
+    top: 20px;
     height: 40px;
-    width: calc(0.7 * (100%-150px));
-
+    width: calc(70% - 150px);
+    overflow: inherit;
     background-color: #fdfdfd;
     border-radius: 25px;
 }

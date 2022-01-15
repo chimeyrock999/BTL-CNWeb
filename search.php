@@ -19,46 +19,6 @@ else{
 }
 ?>
 
-<div class="searchContainer">
-    <img src="assets\images\icons\search.png" alt="" class="icon">
-    <input type="text" class="searchInput" value="<?php echo $term; ?>" placeholder="Nghệ sĩ, bài hát hoặc album..." onfocus="this.value = this.value">
-
-</div>
-
-
-
-<script>
-
-    
-$(".searchInput").focus();
-
-
-
-$(function(){
-    
-
-    
-    
-    $(".searchInput").keyup(function(){
-        clearTimeout(timer);
-        
-        
-        timer = setTimeout(function(){
-            var val = $(".searchInput").val();
-            openPage("search.php?term=" + val);
-        }, 2000);
-        
-        
-        
-    })
-    
-    
-    
-})
-
-
-
-</script>
 
 
 <?php
@@ -129,7 +89,7 @@ if($term == "")
             
        <div class='trackOptions'>
 						<input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
-						<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
+						<img class='optionsButton' src='assets/images/icons/add.png' onclick='showOptionsMenu(this)'>
 					</div>
 
             
@@ -308,7 +268,9 @@ if($term == "")
     
     if((mysqli_num_rows($songsQuery)==0) && (mysqli_num_rows($albumQuery)==0) && (mysqli_num_rows($artistsQuery)==0)){
                 
-                echo "<span class='noResults'>No found matching with " . $term . "</span>";
+                echo '<div class="trackListContainer borderBottom">
+                <span class="noResults">No found matching with "' . $term . '"</span>
+                </div>';
         
     }
     

@@ -122,12 +122,12 @@ $artist = new Artist($con, $artistId);
             
             	<div class='trackOptions'>
 						<input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
-						<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
+						<img class='optionsButton' src='assets/images/icons/add.png' onclick='showOptionsMenu(this)'>
 					</div>
             
             <div class='trackDuration'>
             
-                <span class='duration'>". $albumSong->getDuration() ."</span>
+                <span class='duration'>".date("i:s", $albumSong->getDuration()) ."</span>
             
             
             </div>

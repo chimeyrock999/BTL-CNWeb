@@ -11,11 +11,11 @@ $playlist = new Playlist($con, $playlistId);
 $owner = new User($con, $playlist->getOwner());
 ?>
 
-<div class='entityInfo' >
+<div class="entityInfo" onclick='openPage("index.php")'>
 
 	<div class="leftSection">
 		<div class="playlistImage">
-			<img src="<?php echo $playlist->getArtworkPath(); ?> ">
+			<img src="assets/images/icons/playlist.png">
 		</div>
 	</div>
 
@@ -23,8 +23,8 @@ $owner = new User($con, $playlist->getOwner());
 		<h2><?php echo $playlist->getName(); ?></h2>
 		<p>Tạo bởi <?php echo $owner-> getFirstAndLastName(); ?></p>
 		<p><?php echo $playlist->getNumberOfSongs(); ?> bài hát</p>
-		<button class="button" id="edit-btn"  onclick='openPage("updatePlaylist.php?id=<?php echo $playlistId; ?> ")'>SỬA</button>
-		<button class="button id"  onclick="deletePlaylist('<?php echo $playlistId; ?>')">XÓA</button>
+		<button class="button" onclick="deletePlaylist('<?php echo $playlistId; ?>')">XÓA PLAYLIST</button>
+
 	</div>
 
 </div>
@@ -56,7 +56,7 @@ $owner = new User($con, $playlist->getOwner());
 
 			<div class='trackOptions'>
 						<input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
-						<img class='optionsButton' src='assets/images/icons/add.png' onclick='showOptionsMenu(this)'>
+						<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
 					</div>
 
 
