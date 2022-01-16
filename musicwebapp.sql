@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 03:30 PM
+-- Generation Time: Jan 16, 2022 at 04:22 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+07:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -42,10 +42,16 @@ CREATE TABLE `albums` (
 INSERT INTO `albums` (`id`, `title`, `artist`, `genre`, `artworkPath`) VALUES
 (1, 'BIGCITYBOY', 1, 'Rap', 'assets\\images\\artworks\\BIGCITYBOI.jpg'),
 (2, 'Đi về nhà', 2, 'Rap', 'assets\\images\\artworks\\Di_Ve_Nha.jpg'),
-(3, 'Sky Tour (2019)', 5, 'Rap, Pop, Ballad', 'assets\\images\\artworks\\sky-tour.jpg'),
-(4, 'Trên tình bạn dưới tình yêu', 9, 'Pop', 'assets\\images\\artworks\\Tren-tinh-ban-duoi-tinh-yeu.jpg'),
-(5, 'Chưa bao giờ mẹ kể', 9, 'Pop', 'assets\\images\\artworks\\Chua-bao-gio-me-ke.jpg'),
-(6, 'Y.Ê.U', 9, 'Pop', 'assets\\images\\artworks\\Y.E.U.jpg');
+(3, 'Sky Tour (2019)', 5, 'Pop, Ballad', 'assets\\images\\artworks\\sky-tour.jpg'),
+(7, 'Show của Đen', 2, 'Rap', 'assets\\images\\artworks\\Show-cua-Den.jpg'),
+(8, 'Trốn tìm', 2, 'Rap', 'assets\\images\\artworks\\Tron-tim.jpg'),
+(9, 'Mang tiền về cho mẹ', 2, 'Rap', 'assets\\images\\artworks\\Mang-tien-ve-cho-me.jpg'),
+(10, 'Trời hôm nay nhiều mây cực!', 2, 'Rap', 'assets\\images\\artworks\\troi-hom-nay-nhieu-may-cuc-!.jpg'),
+(11, 'Đừng gọi anh dậy', 4, 'Rap', 'assets\\images\\artworks\\dung-goi-anh-day.jpg'),
+(12, 'Từ chối nhẹ nhàng thôi', 3, 'Ballad', 'assets\\images\\artworks\\tu-choi-nhe-nhang-thoi.jpg'),
+(13, 'Gieo quẻ', 6, 'Pop', 'assets\\images\\artworks\\gieo-que-hoang-thuy-linh-den.jpg'),
+(14, 'Em đây chẳng phải Thúy Kiều', 6, 'Pop', 'assets\\images\\artworks\\em-day-chang-phai-thuy-kieu.jpg'),
+(15, 'tiny things', 7, 'Pop', 'assets\\images\\artworks\\tiny-things.jpg');
 
 -- --------------------------------------------------------
 
@@ -90,6 +96,15 @@ CREATE TABLE `likedsongs` (
   `owner` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `likedsongs`
+--
+
+INSERT INTO `likedsongs` (`songid`, `owner`) VALUES
+(4, 'chimeyrock999'),
+(5, 'chimeyrock999'),
+(29, 'chimeyrock999');
+
 -- --------------------------------------------------------
 
 --
@@ -100,17 +115,17 @@ CREATE TABLE `playlists` (
   `id` int(11) NOT NULL,
   `name` varchar(125) NOT NULL,
   `owner` varchar(125) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `artworkPath` varchar(250) NOT NULL DEFAULT 'assets\\images\\icons\\playlist.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `playlists`
 --
 
-INSERT INTO `playlists` (`id`, `name`, `owner`, `date`) VALUES
-(11, 'Thoại 2', 'chimeyrock1', '2022-01-13 00:00:00'),
-(12, 'Thoại 3', 'chimeyrock1', '2022-01-13 00:00:00'),
-(13, 'Thoại 4', 'chimeyrock1', '2022-01-13 00:00:00');
+INSERT INTO `playlists` (`id`, `name`, `owner`, `date`, `artworkPath`) VALUES
+(106, 'Playlist #1', 'chimeyrock999', '2022-01-16 00:00:00', 'assets/images/icons/playlist.png'),
+(108, 'Playlist #1', 'chimeyrock1', '2022-01-16 00:00:00', 'assets/images/icons/playlist.png');
 
 -- --------------------------------------------------------
 
@@ -130,7 +145,12 @@ CREATE TABLE `playlistsongs` (
 --
 
 INSERT INTO `playlistsongs` (`id`, `songId`, `playlistId`, `playlistOrder`) VALUES
-(2, 1, 11, 0);
+(22, 5, 106, 0),
+(23, 4, 106, 1),
+(24, 6, 106, 2),
+(25, 27, 106, 3),
+(26, 25, 106, 4),
+(27, 20, 106, 5);
 
 -- --------------------------------------------------------
 
@@ -155,19 +175,30 @@ CREATE TABLE `songs` (
 --
 
 INSERT INTO `songs` (`id`, `title`, `artist`, `album`, `genre`, `duration`, `path`, `albumOrder`, `plays`) VALUES
-(1, 'BIGCITYBOY', 1, 1, 'Rap', 233, 'assets\\music\\TOULIVER x BINZ - -BIGCITYBOI- (Official Music Video).mp3', 1, 6),
-(2, 'Chắc Ai Đó Sẽ Về (Sky Tour 2019)', 5, 3, 'Rap, Pop, Ballad', 283, 'assets\\music\\Chắc Ai Đó Sẽ Về (Sky Tour 2019).mp3', 6, 0),
-(4, 'Chạy Ngay Đi (Sky Tour 2019)', 5, 3, 'Rap, Pop, Ballad', 309, 'assets\\music\\Chạy Ngay Đi (Sky Tour 2019).mp3', 2, 3),
-(5, 'Sky Tour Intro', 5, 3, 'Rap', 209, 'assets\\music\\Sky Tour Intro.mp3', 1, 8),
-(6, 'Chúng Ta Không Thuộc Về Nhau (Sky Tour 2019)', 5, 3, 'Rap', 247, 'assets\\music\\Chúng Ta Không Thuộc Về Nhau (Sky Tour 2019).mp3', 3, 2),
-(7, 'Trên Tình Bạn Dưới Tình Yêu', 9, 4, 'Pop', 199, 'assets\\music\\Trên Tình Bạn Dưới Tình Yêu (Official Audio).mp3', 1, 0),
-(8, 'Trên Tình Bạn Dưới Tình Yêu (feat. 16 Typh)', 9, 4, 'Pop', 231, 'assets\\music\\Trên Tình Bạn Dưới Tình Yêu (feat. 16 Typh)(Official Audio).mp3', 2, 0),
-(9, 'Chưa Bao Giờ Mẹ Kể feat. ERIK', 9, 5, 'Pop', 258, 'assets\\music\\Chưa Bao Giờ Mẹ Kể feat. ERIK(Official Audio).mp3', 1, 1),
-(10, 'Có Em Chờ (Orchestral)', 9, 6, 'POP', 219, 'assets\\music\\Có Em Chờ (Orchestral) (Official Audio).mp3', 1, 1),
-(11, 'Em Mới Là Người Yêu Anh - English Ver. ', 9, 6, 'Pop', 244, 'assets\\music\\Em Mới Là Người Yêu Anh - English Ver. (Official Audio).mp3', 2, 1),
-(12, 'Hôn Anh', 9, 6, 'Pop', 234, 'assets\\music\\Hôn Anh (Official Audio).mp3', 3, 0),
-(13, 'Up To You ', 9, 6, 'Pop', 234, 'assets\\music\\Up To You (Official Audio).mp3', 4, 0),
-(14, 'Vì Yêu Cứ Đâm Đầu (feat. Đen, JustaTee)', 9, 6, 'Pop', 231, 'assets\\music\\Vì Yêu Cứ Đâm Đầu (feat. Đen, JustaTee) (Official Audio).mp3', 5, 0);
+(1, 'BIGCITYBOY', 1, 1, 'Rap', 233, 'assets\\music\\TOULIVER x BINZ - -BIGCITYBOI- (Official Music Video).mp3', 1, 64),
+(2, 'Chắc Ai Đó Sẽ Về (Sky Tour 2019)', 5, 3, 'Pop, Ballad', 283, 'assets\\music\\Chắc Ai Đó Sẽ Về (Sky Tour 2019).mp3', 6, 43),
+(4, 'Chạy Ngay Đi (Sky Tour 2019)', 5, 3, 'Pop, Ballad', 309, 'assets\\music\\Chạy Ngay Đi (Sky Tour 2019).mp3', 2, 54),
+(5, 'Sky Tour Intro', 5, 3, 'Rap', 209, 'assets\\music\\Sky Tour Intro.mp3', 1, 60),
+(6, 'Chúng Ta Không Thuộc Về Nhau (Sky Tour 2019)', 5, 3, 'Rap', 247, 'assets\\music\\Chúng Ta Không Thuộc Về Nhau (Sky Tour 2019).mp3', 3, 52),
+(15, 'Mười Năm ft. Ngọc Linh (Live at Show của Đen)', 2, 7, 'Rap', 285, 'assets\\music\\Mười Năm ft. Ngọc Linh (Live at Show của Đen).mp3', 1, 2),
+(16, 'Lộn Xộn II (Live at Show của Đen)', 2, 7, 'Rap', 148, 'assets\\music\\Lộn Xộn II (Live at Show của Đen ).mp3', 2, 5),
+(17, 'Nhiều Năm Nữa (Live at Show của Đen)', 2, 7, 'Rap', 199, 'assets\\music\\Nhiều Năm Nữa (Live at Show của Đen ).mp3', 3, 1),
+(18, 'Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen )', 2, 7, 'Rap', 188, 'assets\\music\\Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen ).mp3', 4, 2),
+(19, 'Đố em biết anh đang nghĩ gì (Live at Show của Đen )', 2, 7, 'Rap', 275, 'assets\\music\\Đố em biết anh đang nghĩ gì (Live at Show của Đen ).mp3', 5, 2),
+(20, 'Loving You Sunny (Live at Show của Đen )', 2, 7, 'Rap', 319, 'assets\\music\\Loving You Sunny (Live at Show của Đen ).mp3', 7, 1),
+(21, 'Mơ (Live at Show của Đen)', 2, 7, 'Rap', 233, 'assets\\music\\Mơ (Live at Show của Đen).mp3', 6, 2),
+(22, 'Cho Tôi Lang Thang (Live at Show của Đen )', 2, 7, 'Rap', 272, 'assets\\music\\Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen ).mp3', 8, 1),
+(23, 'Anh Đếch Cần Gì Nhiều Ngoài Em (Live at Show của Đen)', 2, 7, 'Rap', 246, 'assets\\music\\Anh Đếch Cần Gì Nhiều Ngoài Em (Live at Show của Đen).mp3', 9, 2),
+(24, 'Đi Theo Bóng Mặt Trời (Live at Show của Đen)', 2, 7, 'Rap', 236, 'assets\\music\\Đi Theo Bóng Mặt Trời (Live at Show của Đen).mp3', 10, 1),
+(25, 'Bài Này Chill Phết (Live at Show của Đen)', 2, 7, 'Rap', 294, 'assets\\music\\Bài Này Chill Phết (Live at Show của Đen).mp3', 11, 2),
+(26, 'hai triệu năm ft. Biên (Live at Show của Đen)', 2, 7, 'Rap', 298, 'assets\\music\\hai triệu năm ft. Biên (Live at Show của Đen).mp3', 12, 2),
+(27, 'Đưa Nhau Đi Trốn ft. Linh Cáo (Live at Show của Đen)', 2, 7, 'Rap', 245, 'assets\\music\\Đưa Nhau Đi Trốn ft. Linh Cáo (Live at Show của Đen).mp3', 13, 1),
+(28, 'Ta Cứ Đi Cùng Nhau ft. Linh Cáo (Live at Show của Đen)', 2, 7, 'Rap', 346, 'assets\\music\\Ta Cứ Đi Cùng Nhau ft. Linh Cáo (Live at Show của Đen).mp3', 14, 1),
+(29, 'Cảm Ơn (Live at Show của Đen) [Prod. by Novmber]', 2, 7, 'Rap', 274, 'assets\\music\\Anh Đếch Cần Gì Nhiều Ngoài Em (Live at Show của Đen).mp3', 15, 1),
+(30, 'Trốn tìm', 2, 8, 'Rap', 248, 'assets\\music\\Trốn Tìm ft. MTV band.mp3', 1, 2),
+(31, 'Mang Tiền Về Cho Mẹ ft. Nguyên Thảo', 2, 9, 'Rap', 405, 'assets\\music\\Mang Tiền Về Cho Mẹ ft. Nguyên Thảo.mp3', 1, 2),
+(32, 'Đen x JustaTee - Đi Về Nhà', 2, 2, 'Rap', 0, 'assets\\music\\Đen x JustaTee - Đi Về Nhà.mp3', 1, 2),
+(33, 'Đen - Trời hôm nay nhiều mây cực!', 2, 10, 'Rap', 252, 'assets\\images\\artworks\\Đen - Trời hôm nay nhiều mây cực!.mp3', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -193,7 +224,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `date`, `profilePic`) VALUES
 (2, 'chimeyrock1', 'Thoại', 'Trịnh Văn', 'trinhvanthoai99@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-03 00:00:00', 'assets/images/profile-pics/head_emerald.png'),
 (3, 'chimeyrock2', 'Văn Thoại', 'Trịnh', 'test1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-03 00:00:00', 'assets/images/profile-pics/head_emerald.png'),
-(4, 'chimeyrock999', 'Trịnh Văn', 'Thoại', 'trinhvanthoai@gmail.com', '9f8d5cb7fc16e53d052cafb1544443e8', '2022-01-13 00:00:00', 'assets/images/profile-pics/head_emerald.png');
+(4, 'chimeyrock999', 'Trịnh Văn', 'Thoại', 'trinhvanthoai@gmail.com', '585a37b786432d4f0f03473186b545b2', '2022-01-13 00:00:00', 'assets/images/profile-pics/head_emerald.png');
 
 --
 -- Indexes for dumped tables
@@ -230,9 +261,7 @@ ALTER TABLE `playlists`
 --
 ALTER TABLE `playlistsongs`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `songId_2` (`songId`,`playlistId`),
-  ADD UNIQUE KEY `songId_3` (`songId`,`playlistOrder`),
-  ADD KEY `songId` (`songId`),
+  ADD UNIQUE KEY `songId` (`songId`,`playlistId`),
   ADD KEY `playlistId` (`playlistId`);
 
 --
@@ -259,7 +288,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `artists`
@@ -271,19 +300,19 @@ ALTER TABLE `artists`
 -- AUTO_INCREMENT for table `playlists`
 --
 ALTER TABLE `playlists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `playlistsongs`
 --
 ALTER TABLE `playlistsongs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `songs`
 --
 ALTER TABLE `songs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -319,7 +348,7 @@ ALTER TABLE `playlists`
 --
 ALTER TABLE `playlistsongs`
   ADD CONSTRAINT `playlistsongs_ibfk_1` FOREIGN KEY (`songId`) REFERENCES `songs` (`id`),
-  ADD CONSTRAINT `playlistsongs_ibfk_2` FOREIGN KEY (`playlistId`) REFERENCES `playlists` (`id`);
+  ADD CONSTRAINT `playlistsongs_ibfk_2` FOREIGN KEY (`playlistId`) REFERENCES `playlists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `songs`

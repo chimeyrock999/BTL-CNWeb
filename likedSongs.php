@@ -17,7 +17,7 @@ $likedSongs = new likedSongs($con, $username);
 	<div class="rightSection">
 		<h2>Bài hát đã thích</h2>
 		<p role="link" tabindex="0" ><?php echo $userLoggedIn->getFirstAndLastName(); ?></p>
-		<p><?php echo $likedSongs->getNumberOfSongs(); ?> songs</p>
+		<p><?php echo $likedSongs->getNumberOfSongs(); ?> bài hát</p>
 
 	</div>
 

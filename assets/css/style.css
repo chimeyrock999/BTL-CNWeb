@@ -314,7 +314,6 @@ body {
 }
 
 .pageHeadingBig {
-    padding: 20px;
     text-align: center;
 }
 
@@ -533,9 +532,9 @@ body {
     top: 20px;
     height: 40px;
     width: calc(70% - 150px);
-    overflow: inherit;
     background-color: #fdfdfd;
     border-radius: 25px;
+    text-overflow: ellipsis;
 }
 
 .searchContainer .searchInput {
@@ -551,6 +550,7 @@ body {
     font-size: 62px; */
     letter-spacing: 2px;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .searchContainer .icon {
