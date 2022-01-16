@@ -18,7 +18,7 @@ if(isset($_POST['email']) && $_POST['email'] != ""){
     
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         
-        echo "Email is invalid";
+        echo "Email không đúng";
         exit();
         
     }
@@ -27,20 +27,20 @@ if(isset($_POST['email']) && $_POST['email'] != ""){
     
     if(mysqli_num_rows($emailCheck)>0){
         
-        echo "Email is already in use";
+        echo "Email đã được sử dụng";
         exit();
     }
     
     $update = mysqli_query($con, "UPDATE users SET email = '$email' WHERE username = '$username'");
     
-    echo "Update Successful!";
+    echo "Cập nhật thành công!";
     
 }
 
 
 else{
     
-    echo "You must provide a email";
+    echo "Bạn phải điền email";
     
     
 }

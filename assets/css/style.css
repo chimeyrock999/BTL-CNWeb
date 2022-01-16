@@ -350,6 +350,7 @@ body {
     width: 100%;
 }
 
+
 .entityInfo .leftSection {
     width: 30%;
     float: left;
@@ -360,11 +361,31 @@ body {
     width: 100%;
 }
 
+.entityInfo .leftSection input{
+    display: none;
+}
+
 .entityInfo .rightSection {
     width: 70%;
     float: left;
     padding: 5px 10px 5px 40px;
     box-sizing: border-box;
+}
+.entityInfo .rightSection .message {
+    color: #2ebd59;
+    font-weight: 300;
+}
+
+.entityInfo .rightSection input[type="text"]{
+    display: block;
+    margin: 16px auto;
+    height: 50px;
+    width: 100%;
+    background: #1f1f1f;
+    border: none;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 20px;
 }
 
 .entityInfo .rightSection h2 {
@@ -567,8 +588,11 @@ input:focus {
 .playlistContainer {
     padding: 10px 0;
 }
-
-.playlistImage {
+.playListImage{
+    border: 3px solid #282828;
+    padding: 10px;
+}
+.leftSectionImage {
     border: 3px solid #282828;
     padding: 10px;
 }

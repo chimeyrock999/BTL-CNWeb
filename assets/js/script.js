@@ -8,7 +8,7 @@ var repeat = false;
 var shuffle = false;
 var userLoggedIn;
 var timer;
-var liked=false;
+var liked;
 
 $(document).click(function(click) {
 	var target = $(click.target);
@@ -21,6 +21,7 @@ $(document).click(function(click) {
 $(window).scroll(function() {
 	hideOptionsMenu();
 });
+
 
 $(document).on("change", "select.playlist", function() {
 	var select = $(this);
@@ -42,9 +43,41 @@ $(document).on("change", "select.playlist", function() {
 
 
 
+
 // function reloadNavBar(){
 // 	$("#navBarContainer", window.parent).load("includes/navBarContainer.php #navBarContainer");
 // }
+$(document).ready(function (e) {
+    $('#playlistArtworkForm').on('submit',(function(e) {
+        e.preventDefault();
+		console.log('submitted');
+        var formData = new FormData(this);
+		
+
+        $.ajax({
+            type:'POST',
+            url: 'includes/handlers/ajax/updatePlaylistArtwork.php',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                console.log("success");
+                console.log(data);
+            },
+            error: function(data){
+                console.log("error");
+                console.log(data);
+            }
+        });
+    }));
+
+})
+
+function submitImageForm(playlistID){
+	console.log("changed1");
+	$("#playlistArtworkForm").submit()
+}
 
 function updateEmail(emailClass) {
 	var emailValue = $("." + emailClass).val();
@@ -55,6 +88,21 @@ function updateEmail(emailClass) {
 	})
 
 
+}
+
+function setLiked(liked){
+	this.liked=liked;
+}
+
+function updatePlaylistName(playlistId, playlistNameClass){
+	var playlistName = $("." + playlistNameClass).val();
+
+	$.post("includes/handlers/ajax/updatePlaylistName.php", {playlistId: playlistId, name: playlistName})
+	.done(function(response){
+		$("." + playlistNameClass).nextAll(".message").text(response);
+		//console.log(response);
+	});
+	// console.log(playlistId +" "+playlistName);
 }
 
 function updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2) {
@@ -70,6 +118,7 @@ function updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2) 
 
 	.done(function(response) {
 		$("." + oldPasswordClass).nextAll(".message").text(response);
+		
 	})
 
 
@@ -161,7 +210,7 @@ function hideOptionsMenu() {
 function showOptionsMenu(button) {
 	var songId = $(button).prevAll(".songId").val();
 	var menu = $(".optionsMenu");
-	var menuWidth = menu.width();
+	var menuWidth = menu.width()-222;
 	menu.find(".songId").val(songId);
 
 	var scrollTop = $(window).scrollTop(); //Distance from top of window to top of document

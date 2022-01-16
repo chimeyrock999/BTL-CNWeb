@@ -59,7 +59,9 @@
 		}
 
 		public static function getPlaylistsDropdown($con, $username) {
-			$dropdown = '<select class="item playlist">';
+			$dropdown = '<select class="item playlist">
+						"<option>Thêm vào playlist</option>"
+						';
 
 			$query = mysqli_query($con, "SELECT id, name FROM playlists WHERE owner='$username'");
 			while($row = mysqli_fetch_array($query)) {

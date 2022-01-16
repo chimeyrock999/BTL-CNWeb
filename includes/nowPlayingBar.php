@@ -1,13 +1,13 @@
 <?php
-$songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+	$songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
 
-$resultArray = array();
+	$resultArray = array();
 
-while($row = mysqli_fetch_array($songQuery)) {
-	array_push($resultArray, $row['id']);
-}
+	while($row = mysqli_fetch_array($songQuery)) {
+		array_push($resultArray, $row['id']);
+	}
 
-$jsonArray = json_encode($resultArray);
+	$jsonArray = json_encode($resultArray);
 ?>
 
 <script>
@@ -68,8 +68,6 @@ $(document).ready(function() {
 	});
 
 
-
-
 });
 
 function timeFromOffset(mouse, progressBar) {
@@ -114,9 +112,20 @@ function setRepeat() {
 }
 
 function setLike(){
-	liked = !liked;
+	//console.log("before="+liked);
+	setLiked(!liked);
+	//console.log("after="+ liked);
 	var imageName = liked ? "liked.png" : "like.png";
 	$(".controlButton.like img").attr("src", "assets/images/icons/" + imageName );
+	$.post("includes/handlers/ajax/likeASong.php", { owner: userLoggedIn, songId: audioElement.currentlyPlaying.id, liked: liked })
+	.done(function(error) {
+		if(error != "") {
+			alert(error);
+			return;
+		}
+	});
+	
+	
 }
 function setMute() {
 	audioElement.audio.muted = !audioElement.audio.muted;
@@ -189,6 +198,21 @@ function setTrack(trackId, newPlaylist, play) {
             
             $(".trackInfo .trackName span").attr("onclick", "openPage('album.php?id="+ album.id+  "')");
             
+		});
+
+		$.post("includes/handlers/ajax/checkLiked.php", {username: userLoggedIn, songId: trackId})
+		.done(function(response){
+			//console.log(response);
+			if (response == 0){
+				setLiked(false);
+				$(".controlButton.like img").attr("src", "assets/images/icons/like.png");
+				//console.log("getLiked ="+ liked);
+			}
+			else{
+				setLiked(true);
+				$(".controlButton.like img").attr("src", "assets/images/icons/liked.png");
+				//console.log("getLiked ="+ liked);
+			}
 		});
 
 
@@ -319,7 +343,7 @@ function getIdOfPlayingSongs(){
 		<div id="nowPlayingRight">
 			<div class="volumeBar">
 				<button class="controlButton like" title="Like button" onclick="setLike()">
-					<img src="assets/images/icons/like.png" alt="Like">
+					<img src="" alt="Like">
 				</button>
 				<button class="controlButton volume" title="Volume button" onclick="setMute()">
 					<img src="assets/images/icons/volume.png" alt="Volume">

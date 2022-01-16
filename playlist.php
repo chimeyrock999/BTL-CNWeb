@@ -1,29 +1,33 @@
-<?php include("includes/includedFiles.php"); 
+<?php 
+	include("includes/includedFiles.php"); 
 
-if(isset($_GET['id'])) {
-	$playlistId = $_GET['id'];
-}
-else {
-	header("Location: index.php");
-}
+	if(isset($_GET['id'])) {
+		$playlistId = $_GET['id'];
+	}
+	else {
+		header("Location: index.php");
+	}
 
-$playlist = new Playlist($con, $playlistId);
-$owner = new User($con, $playlist->getOwner());
+	$playlist = new Playlist($con, $playlistId);
+	$owner = new User($con, $playlist->getOwner());
 ?>
 
-<div class='entityInfo' >
-
-	<div class="leftSection">
-		<div class="playlistImage">
-			<img src="<?php echo $playlist->getArtworkPath(); ?> ">
-		</div>
+	<div class="entityInfo">
+		<div class="leftSection">
+			<form class="leftSectionImage" enctype="multipart/form-data" id="playlistArtworkForm">
+				<label for="artwork-input" > 
+					<img src="<?php echo $playlist->getArtworkPath(); ?> ">
+				</label>
+				<input type="text" name="playlistId" value="<?php echo $playlistId; ?>">
+				<input id="artwork-input" type="file" name="playlistArtwork" onchange="submitImageForm('<?php echo $playlistId; ?>', 'playlistArtwork' )"> 
+			</form>
 	</div>
-
 	<div class="rightSection">
-		<h2><?php echo $playlist->getName(); ?></h2>
+		<input type="text" class="playlist-name" name="playlist-name" placeholder="Tên playlist..." value="<?php echo $playlist->getName(); ?>">
+		<span class="message"></span>
 		<p>Tạo bởi <?php echo $owner-> getFirstAndLastName(); ?></p>
 		<p><?php echo $playlist->getNumberOfSongs(); ?> bài hát</p>
-		<button class="button" id="edit-btn"  onclick='openPage("updatePlaylist.php?id=<?php echo $playlistId; ?> ")'>SỬA</button>
+		<button class="button id" onclick="updatePlaylistName('<?php echo $playlistId; ?>', 'playlist-name')">LƯU</button>
 		<button class="button id"  onclick="deletePlaylist('<?php echo $playlistId; ?>')">XÓA</button>
 	</div>
 
@@ -61,7 +65,7 @@ $owner = new User($con, $playlist->getOwner());
 
 
 					<div class='trackDuration'>
-						<span class='duration'>" . $playlistSong->getDuration() . "</span>
+						<span class='duration'>" .date("i:s", $playlistSong->getDuration()) . "</span>
 					</div>
 
 
@@ -86,7 +90,7 @@ $owner = new User($con, $playlist->getOwner());
 <nav class="optionsMenu">
 	<input type="hidden" class="songId">
 	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
-    <div class="item" onclick="removeFromPlaylist(this, '<?php   echo $playlistId;?>')">Remove from Playlist</div>
+    <div class="item" onclick="removeFromPlaylist(this, '<?php   echo $playlistId;?>')">Xóa khỏi playlist</div>
     
     
     

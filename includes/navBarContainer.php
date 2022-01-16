@@ -40,7 +40,7 @@
         <div class="group" id="playlist-group">
 
             <div class="navItem" >
-                <div role ="link" tabIndex="0"  class="navItemlink">
+                <div role ="link" tabIndex="0"  class="navItemlink" onclick="openPage('likedSongs.php')">
                     <span class="navItemTitle">Bài hát đã thích</span>
                     <img src="assets\images\icons\liked.png" class="icon" alt="addPlayList">
                 </div>
