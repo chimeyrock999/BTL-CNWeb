@@ -1,0 +1,301 @@
+
+.navbar-header{
+  position: fixed;
+  display: block;
+  background-color: #000000;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+}
+.navbar-header h2{
+  position: relative;
+}
+
+#userProfile {
+  display: inline-block;
+  position: absolute;
+  min-width: 200px;
+  top: 5px;
+  height: 40px;
+  right: 15px;
+  border-radius: 20px;
+  background-color: #404040;
+  color: rgb(255, 255, 255);
+}
+
+#userProfile .avatar {
+  position: relative;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#userProfile .userName {
+  height: 30px;
+  display: inline;
+  position: absolute;
+  padding-left: 10px;
+  padding-top: 10px;
+  right: 25px;
+}
+
+#userProfile .icon {
+  position: absolute;
+  right: 0px;
+  height: 30px;
+  top: 5px;
+}
+#userProfile .dropdown-icon {
+  top: 18px;
+
+}
+
+
+.userProfile-content {
+  display: none;
+  position: absolute;
+  background-color: #404040;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 20px;
+  top: 40px;
+  overflow: hidden;
+}
+
+/* Links inside the dropdown */
+.userProfile-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.userProfile-content a:hover {
+  background-color: #626262;
+}
+
+/* Show the dropdown menu on hover */
+#userProfile:hover .userProfile-content {
+  display: block;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+
+
+.sidenav{
+  position: fixed;
+  height: calc(100% - 60px);
+  width: 220px;
+  z-index: 1;
+  top: 50px;
+  left: 0px;
+  background-color: #181818;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+#navBarContainer{
+  padding-inline-start: 10px;
+  height: 90%;
+  overflow-y: auto;
+}
+.sidenav a{
+  width: 88%;
+  position: relative;
+  padding: 5px 8px 6px 6px;
+  text-decoration: none;
+  display: block;
+}
+
+.sidenav ul {
+  list-style-type: none;
+}
+
+.collapsible {
+  background-color: #181818;
+  color: #ECF0F1;
+  cursor: pointer;
+  height: 40px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.collapsible:hover {
+    color:  #ccc;
+    background-color: #404040;
+  }
+.collapsible-content {
+  display: none;
+  background-color: #181818;
+}
+.collapsible-content li {
+  width: 78%;
+  color: #ECF0F1;
+  cursor: pointer;
+  height: 40px;
+  border: none;
+  text-align: left;
+  outline: none;
+  padding: 5px 8px 6px 16px;
+}
+.collapsible-content li:hover {
+  color:  #ccc;
+  background-color: #404040;
+}
+.collapsible-content a {
+  color: #ECF0F1;
+  padding-top: 8px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+
+}
+
+.icon {
+  position: relative;
+  top: 6px;
+  width: 25px;
+  padding-right: 10px;
+}
+.dropdown-icon{
+  position: absolute;
+  width: 10px;
+  right: 8px;
+  top: 20px;
+}
+
+#container{
+  height: calc(100% - 60px);
+  width: calc(100% - 250px);
+  position: fixed;
+  left: 220px;
+  top: 50px;
+  padding-left: 20px;
+}
+.panel-title{
+  width: 100%;
+  background-color:#f2f2f2;
+  border-radius: 5px;
+}
+.panel-title h1{
+  padding: 5px 10px 10px 10px;
+}
+.panel-body{
+  height: calc(100% - 100px);
+  width: 100%;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.dashboard-row{
+  width: calc(100% - 20px);
+}
+.dashboard-item{
+  float: left;
+  width: 17%;
+  background-color: #181818;
+  color: #ccc;
+  margin: 10px;
+  border-radius: 5px;
+}
+.dashboard-item-header{
+  width: 100%;
+  height: 100px;
+  border-bottom-color: #ccc;
+  border-bottom-style: solid;  
+  border-bottom-width: 2px;
+}
+.dashboard-item .icon{
+  float: left;
+  width: 70px;
+  padding: 5px;
+  padding-left: 10px;
+}
+.dashboard-item-right{
+  float: right;
+  height: 100%;
+}
+.dashboard-item-number{
+  font-size: 26px;
+  float: right;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+.dashboard-item-title{
+  text-align: right;
+  padding-right: 15px;
+  padding-top: 70px;
+}
+.dashboard-item-footer{
+  width: 100%;
+  height: 35px;
+  padding-top: 10px;
+  cursor: pointer;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.dashboard-item-footer:hover{
+  background-color: #404040;
+}
+
+.dashboard-item-footer a{
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #ddd;
+  padding-left: 10px;
+}
+.dashboard-item-footer .arrow-icon{
+  float: right;
+  width: 15px;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+.dashboard-row{
+  padding: 5px;
+}
+.dashboard-table{
+  width: 100%;
+  border-radius: 5px;
+  overflow: auto;
+  border: 1px solid #ddd;
+}
+.dashboard-table-title{
+  text-align: center;
+  width: 50%;
+  float: left;
+  padding-bottom: 5px;
+}
+
+.dashboard-table table{
+  border-top: 1px solid #ddd;
+}
+
+.dashboard-table tr th:nth-child(5){
+  border-right:  1px solid #ddd;
+}  
+.dashboard-table tr td:nth-child(5){
+  border-right:  1px solid #ddd;
+}  
+
+
+table {
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+.dashboard-row{
+  display: inline-table;
+}
