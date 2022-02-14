@@ -3,6 +3,7 @@
 
 include("includes/includedFiles.php");
 
+$update_view_query = mysqli_query($con, "UPDATE views SET views = views + 1 WHERE id =1 ");
 
 if(isset($_GET['term']))
     {

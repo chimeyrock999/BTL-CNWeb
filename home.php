@@ -6,6 +6,7 @@ include("includes/includedFiles.php");
                 
        
 <?php
+    $update_view_query = mysqli_query($con, "UPDATE views SET views = views + 1 WHERE id =1 ");
     $now=date("H");
     $title ="";
     if ((0<=$now) && ($now<=11)){

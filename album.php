@@ -6,7 +6,7 @@ if(isset($_GET['id'])) {
 else {
 	header("Location: index.php");
 }
-
+$update_view_query = mysqli_query($con, "UPDATE views SET views = views + 1 WHERE id =1 ");
 $album = new Album($con, $albumId);
 $artist = $album->getArtist();
 $artistId = $artist->getId();
