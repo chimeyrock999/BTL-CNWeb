@@ -1,3 +1,14 @@
+table {
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
 
 .navbar-header{
   position: fixed;
@@ -283,19 +294,123 @@
 }  
 
 
-table {
-  overflow-x: auto;
-  border-collapse: collapse;
-  border-spacing: 0;
+tr:nth-child(even){background-color: #f2f2f2}
+.dashboard-row{
+  width: calc(100% - 20px);
+  display: inline-table;
+}
+
+#form-panel-body{
+  background-color: #f2f2f2;
+}
+#form-panel-body form{
+  height: 100%;
+  margin: 20px;
+}
+#form-panel-body form {
+  height: calc(100% - 40px)
+}
+.admin-profile-form .collum{
+  float: left;
+}
+.admin-profile-form .collum:first-child{
+  width: 70%;
+}
+.admin-profile-form .collum:nth-child(2){
+  width: 30%;
+}
+#form-panel-body form input[type=text],input[type=email], input[type=password], textarea, select{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+#form-panel-body form label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+#form-panel-body form  input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin: 5px;
+}
+#form-panel-body form  .row {
   width: 100%;
 }
 
-th, td {
-  text-align: left;
-  padding: 8px;
+#form-panel-body form .submit-row {
+  width: 100%;
+  float: left;
+}
+#form-panel-body form .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
-.dashboard-row{
-  display: inline-table;
+/* Floating column for inputs: 75% width */
+#form-panel-body form .col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
 }
+
+
+/* Clear floats after the columns */
+#form-panel-body form .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#form-panel-body form button {
+  float: right; 
+}
+
+.admin-profile-form input[type=file] {
+  float: right; 
+}
+
+.admin-profile-form label.admin_image {
+  width: 80%;
+  float: right;
+  top: 0px;
+  position: relative;
+}
+
+.admin-profile-form img.admin_image {
+  width: 100%;
+  padding: 2px;
+  border:  1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.btn {
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  border: none; /* Remove borders */
+  color: white; /* Add a text color */
+  padding: 12px 20px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+.btn a{
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+}
+
+.danger {background-color: #f44336;} /* Red */
+.danger:hover {background: #da190b;}

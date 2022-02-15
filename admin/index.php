@@ -51,7 +51,6 @@ else {
     <head>
         <title>LiveMusic Admin Panel</title>
         <link href="assets/css/style.css" rel="stylesheet">
-        <script src="assets/js/script.js"></script>
     </head>
 
     <body>
