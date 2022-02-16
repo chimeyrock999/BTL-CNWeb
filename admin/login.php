@@ -13,14 +13,17 @@
         </head>
 
         <body>
-            <div class="container" ><!-- container Starts -->
-                <form class="form-login" action="" method="post" ><!-- form-login Starts -->
-                    <h2 class="form-login-heading" >Admin Login</h2>
-                    <input type="text" class="form-control" name="admin_email" placeholder="Email Address" required >
-                    <input type="password" class="form-control" name="admin_pass" placeholder="Password" required >
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="admin_login" > Log in </button>
-                </form><!-- form-login Ends -->
-            </div><!-- container Ends -->
+        <div class="container">
+            <form action="" method="post" class="form-login">
+                <h2 class="form-login-heading">Login</h2>
+                <label for="admin_email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="admin_email"  class="form-control" required>
+                <label for="admin_pass"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="admin_pass" required>
+                <button type="submit" name="admin_login" >Login</button>
+            </form>
+      
+        </div>
         </body>
 
     </html>
@@ -28,7 +31,6 @@
 <?php
 
     if(isset($_POST['admin_login'])){
-
         $admin_email = mysqli_real_escape_string($con,$_POST['admin_email']);
         $admin_pass = mysqli_real_escape_string($con,$_POST['admin_pass']);
         $admin_pass = md5($admin_pass);
