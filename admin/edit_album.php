@@ -118,7 +118,7 @@ if(isset($_POST['update'])){
 
     if($run_album_update){
         echo "<script>alert('Album Has Been Updated Successfully')</script>";
-        echo "<script>window.open('index.php?view_artists','_self')</script>";
+        echo "<script>window.open('index.php?view_albums','_self')</script>";
     }
 }
 

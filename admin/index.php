@@ -109,7 +109,7 @@ else {
                             $post=true;
                         }
 
-                        if(isset($_GET['insert_ablum'])){
+                        if(isset($_GET['insert_album'])){
                             include("insert_album.php");
                             $post=true;
                         }
