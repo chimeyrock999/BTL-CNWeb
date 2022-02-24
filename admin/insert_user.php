@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin_email'])){
 }
 
 else {
-    $new_user_image="\assets\images\profile-pics\head_emerald.png";
+    $new_user_image="assets/images/profile-pics/head_emerald.png";
 
 ?>
     <div class="panel-title">
@@ -76,7 +76,7 @@ else {
             </div>
             <div class="collum"><!-- form-group Starts -->
                 <label for="user_image" class="admin_image">
-                    <img class="admin_image" src="../<?php echo $new_user_image; ?>" >
+                    <img class="admin_image" src="..\assets\images\artworks\default-arwork.png" >
                 </label>
                 <input type="file" id="user_image" name="user_image" accept="image/*" class="form-control" >
             </div><!-- col-md-6 Ends -->
@@ -95,8 +95,8 @@ else {
 
 if(isset($_POST['update'])){
     $username = $_POST['username'];
-    $userfname = $_POST['user_fname'];
-    $userlname = $_POST['user_lname'];
+    $user_fname = $_POST['user_fname'];
+    $user_lname = $_POST['user_lname'];
     $user_email = $_POST['user_email'];
     $user_pass = $_POST['user_pass'];
     $user_pass2 = $_POST['user_pass2'];
@@ -129,12 +129,12 @@ if(isset($_POST['update'])){
         else{
             if($user_pass2==$user_pass){
                 $user_pass=md5($user_pass);
-                $insert_user = "insert into songs (username, firstname, lastname, email, passwork, date, profilePic) values ('$usernaem','$user_fname','$user_lname','$user_email','$user_pass', '$date','$user_image_path')";
+                $insert_user = "insert into users (username, firstname, lastname, email, password, date, profilePic) values ('$username','$user_fname','$user_lname','$user_email','$user_pass', '$date','$user_image_path')";
                 $run_user = mysqli_query($con,$insert_user);
             
                 if($run_user){
                     echo "<script>alert('User Has Been Updated Successfully')</script>";
-                    echo "<script>window.open('index.php?view_user','_self')</script>";
+                    echo "<script>window.open('index.php?view_users','_self')</script>";
                 }
             }
             else{

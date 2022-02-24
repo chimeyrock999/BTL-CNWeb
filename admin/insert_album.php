@@ -91,8 +91,7 @@ if(isset($_POST['update'])){
     if(empty($album_image)){
         $album_image_path = 'assets/images/artworks/default-album.jpg';
     }
-    $update_album = "update albums set title='$album_title', artist='$album_artist', genre='$album_genre', artworkPath='$album_image_path' where id='$edit_id'";
-    $update_album =  "insert into albums (title, artist', genre, artworkPath) values ('$album_title', '$album_artist', '$album_genre', '$album_image_path')";
+    $update_album =  "insert into albums (title, artist, genre, artworkPath) values ('$album_title', '$album_artist', '$album_genre', '$album_image_path')";
     $run_album_update = mysqli_query($con,$update_album);
 
     if($run_album_update){

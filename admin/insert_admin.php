@@ -1,149 +1,165 @@
 <?php
 
 if(!isset($_SESSION['admin_email'])){
-
-echo "<script>window.open('login.php','_self')</script>";
-
+    echo "<script>window.open('login.php','_self')</script>";
 }
 
 else {
-
-
 ?>
 
-<div class="row"><!-- 1 row Starts -->
+    <div class="panel-title">
+        <h1>Insert Admin</h1>
+    </div>
+    <div class="panel-body" id="form-panel-body">
+        <form class="admin-profile-form" method="post" enctype="multipart/form-data">
+            <div class="collum">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="admin_name">Name</label>
+                        
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="admin_name" name="admin_name" class="form-control" required placeholder="Name...">
+                    </div>
+                </div>
 
-<div class="col-lg-12"><!-- col-lg-12 Starts -->
+                <div class="row">
+                    <div class="col-25">
+                        <label for="admin_email">Email</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="email" id="admin_email" name="admin_email" class="form-control" required  placeholder="Email...">
+                    </div>
+                </div>
 
-<ol class="breadcrumb"><!-- breadcrumb Starts -->
+                <div class="row">
+                    <div class="col-25">
+                        <label for="admin_pass">Password</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="password" id="admin_pass" name="admin_pass" class="form-control"  placeholder="Password...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="admin_pass2">Confirm Password</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="password" id="admin_pass2" name="admin_pass2" class="form-control" placeholder="Password...">
+                    </div>
+                </div>
 
-<li>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="admin_country">Address</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="admin_country" name="admin_country" class="form-control" required placeholder="Adress...">
+                    </div>
+                </div>
 
-<i class="fa fa-dashboard"></i> Dashboard / Insert Category
+                <div class="row">
+                    <div class="col-25">
+                        <label for="admin_job" >Position</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="admin_job" name="admin_job" class="form-control" required placeholder="Position...">
+                    </div>
+                </div>
 
-</li>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="admin_contact" >Contact</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="admin_contact" name="admin_contact" class="form-control" required placeholder="Contact...">
+                    </div>
+                </div>
 
-</ol><!-- breadcrumb Ends -->
+                <div class="row">
+                    <div class="col-25">
+                        <label for="admin_about">About</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea id="admin_about" name="admin_about" placeholder="Write something.." style="height:70px" class="form-control"></textarea>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="collum"><!-- form-group Starts -->
+                <label for="admin_image" class="admin_image">
+                    <img class="admin_image" src="..\assets\images\artworks\default-arwork.png" >
+                </label>
+                <input type="file" id="admin_image" name="admin_image" accept="image/*" class="form-control" >
+            </div><!-- col-md-6 Ends -->
+            <div class="submit-row">
+                <button class="btn danger">
+                      <a href="index.php?view_admin"> Cancel </a>
+                </button>
+                <input type="submit" name="update" value="Update">
+            </div>
 
-</div><!-- col-lg-12 Ends -->
+        </form><!-- form-horizontal Ends -->
 
-</div><!-- 1 row Ends -->
-
-
-<div class="row"><!-- 2 row Starts -->
-
-<div class="col-lg-12"><!-- col-lg-12 Starts -->
-
-<div class="panel panel-default"><!-- panel panel-default Starts -->
-
-<div class="panel-heading"><!-- panel-heading Starts -->
-
-<h3 class="panel-title"><!-- panel-title Starts -->
-
-<i class="fa fa-money fa-fw"></i> Insert Category
-
-</h3><!-- panel-title Ends -->
-
-</div><!-- panel-heading Ends -->
-
-<div class="panel-body"><!-- panel-body Starts -->
-
-<form class="form-horizontal" action="" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label class="col-md-3 control-label">Category Title</label>
-
-<div class="col-md-6">
-
-<input type="text" name="cat_title" class="form-control">
-
-</div>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label class="col-md-3 control-label">Show as Category Top</label>
-
-<div class="col-md-6">
-
-<input type="radio" name="cat_top" value="yes">
-
-<label>Yes</label>
-
-<input type="radio" name="cat_top" value="no">
-
-<label>No</label>
-
-</div>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label class="col-md-3 control-label">Select Category Image</label>
-
-<div class="col-md-6">
-
-<input type="file" name="cat_image" class="form-control">
-
-</div>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label class="col-md-3 control-label"></label>
-
-<div class="col-md-6">
-
-<input type="submit" name="submit" value="Insert Category" class="btn btn-primary form-control">
-
-</div>
-
-</div><!-- form-group Ends -->
-
-</form><!-- form-horizontal Ends -->
-
-</div><!-- panel-body Ends -->
-
-</div><!-- panel panel-default Ends -->
-
-</div><!-- col-lg-12 Ends -->
-
-</div><!-- 2 row Ends -->
+    </div>
 
 <?php
 
-if(isset($_POST['submit'])){
+if(isset($_POST['update'])){
+    $admin_name = $_POST['admin_name'];
+    $admin_email = $_POST['admin_email'];
+    $admin_pass = $_POST['admin_pass'];
+    $admin_pass2 = $_POST['admin_pass2'];
+    $admin_country = $_POST['admin_country'];
+    $admin_job = $_POST['admin_job'];
+    $admin_contact = $_POST['admin_contact'];
+    $admin_about = $_POST['admin_about'];
+    $admin_image = $_FILES['admin_image']['name'];
+    $temp_admin_image = $_FILES['admin_image']['tmp_name'];
+    $admin_image_path='assets/admin_image/'.$admin_image;
+    move_uploaded_file($temp_admin_image,"assets/admin_image/$admin_image");
 
-$cat_title = $_POST['cat_title'];
+    if(empty($admin_image)){
+        $admin_image_path = 'assets/admin_image/head_emerald.png';
+    }
 
-$cat_top = $_POST['cat_top'];
+    $get_email = "select * from admins where admin_email='$admin_email'";
+    $run_email = mysqli_query($con,$get_email);
+    $check_email= (mysqli_num_rows($run_email)!=0);
 
-$cat_image = $_FILES['cat_image']['name'];
-
-$temp_name = $_FILES['cat_image']['tmp_name'];
-
-move_uploaded_file($temp_name,"other_images/$cat_image");
-
-$insert_cat = "insert into categories (cat_title,cat_top,cat_image) values ('$cat_title','$cat_top','$cat_image')";
-
-$run_cat = mysqli_query($con,$insert_cat);
-
-if($run_cat){
-
-echo "<script> alert('New Category Has Been Inserted')</script>";
-
-echo "<script> window.open('index.php?view_cats','_self') </script>";
-
+    if($check_email){
+        if(empty($admin_pass)||empty($admin_pass2)){
+            $admin_pass=$new_admin_pass;
+        }
+        else{
+            if($admin_pass2==$admin_pass){
+                $admin_pass=md5($admin_pass);
+                $update_admin = "insert into admins (admin_name,admin_email,admin_pass,admin_image,admin_contact,admin_country,admin_job,admin_about) values ('$admin_name','$admin_email','$admin_pass','$admin_image_path','$admin_contact','$admin_country','$admin_job','$admin_about')";
+                $run_admin = mysqli_query($con,$update_admin);
+            
+                if($run_admin){
+                    echo "<script>alert('Admin has been inserted successfully!')</script>";
+                    echo "<script>window.open('index.php?view_admins','_self')</script>";
+                    echo "<script>'$check_email'</script>";
+                }
+            }
+            else{
+                echo  "<script>alert('Your passwords do not match')</script>";
+                echo "<script>window.open('index.php?insert_admin','_self')</script>";
+            }
+        }
+    }
+    else{
+        echo  "<script>alert('This email has been used!')</script>";
+        echo "<script>window.open('index.php?insert_admin','_self')</script>";
+    }
+    
+   
 }
-
-}
-
 
 
 ?>
 
-<?php } ?>
+
+
+<?php }  ?>

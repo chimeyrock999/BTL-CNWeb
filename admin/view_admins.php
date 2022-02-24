@@ -79,11 +79,11 @@ else {
         var prompt = confirm("Are you sure you want to delete this admin?");
         if(prompt == true) {
 
-            $.post("user_delete.php", {admin_delete: adminId })
+            $.post("admin_delete.php", {admin_delete: adminId })
             .done(
                 function(response) {
                     alert(response);
-                    window.open('index.php?view_admin','_self')
+                    window.open('index.php?view_admins','_self')
                 });
 
 
