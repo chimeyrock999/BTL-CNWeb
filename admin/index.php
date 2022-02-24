@@ -49,15 +49,19 @@ else {
 <html>
 
     <head>
-        <title>LiveMusic Admin Panel</title>
-        <link href="assets/css/style.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>LiveMusic Admin's Panel</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 
     <body>
             <?php include("includes/sidebar.php");  ?>
-                <div id="page-wrapper"><!-- page-wrapper Starts -->
                     <div id="container"><!-- container-fluid Starts -->
-
+                    
                     <?php
                         $post=false;
                         if(isset($_GET['dashboard'])){
@@ -166,12 +170,8 @@ else {
                         }
     ?>
 
-    </div><!-- container-fluid Ends -->
+        </div><!-- container-fluid Ends -->
 
-    </div><!-- page-wrapper Ends -->
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     </body>

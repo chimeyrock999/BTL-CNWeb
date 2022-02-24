@@ -9,11 +9,11 @@
         $admin_image = $row_admin_image['admin_image'];
 ?>
 
-        <div class="navbar-header" href="index.php?dashboard">
+        <div class="navbar-header">
             <a href="index.php?dashboard" class="navbar-brand">
-                LiveMusic Admin Panel
-        </a>
-
+                <img src="assets\logo\logo.png" class="logo">
+                <h3> LiveMusic Admin Panel </h3>
+            </a>
         
             <div id="userProfile">
                 <img src="<?php echo $admin_image;?>" alt='Avatar' class='avatar'>

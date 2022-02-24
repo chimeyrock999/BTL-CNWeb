@@ -6,7 +6,10 @@ if(!isset($_SESSION['admin_email'])){
 else {
 
 ?>
-    <h1 class="panel-title" > View Artists </h1><!-- panel-title Ends -->  
+    
+    <div class="panel-title">
+        <h1> View Artists </h1>
+    </div><!-- panel-title Ends -->  
     <div class="panel-body"><!-- panel-body Starts -->
         <table class="artist-table" >
             <thead>
