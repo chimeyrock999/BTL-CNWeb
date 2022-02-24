@@ -140,7 +140,7 @@ if(isset($_POST['update'])){
                 if($run_admin){
                     echo "<script>alert('Admin has been inserted successfully!')</script>";
                     echo "<script>window.open('index.php?view_admins','_self')</script>";
-                    echo "<script>'$check_email'</script>";
+                   
                 }
             }
             else{

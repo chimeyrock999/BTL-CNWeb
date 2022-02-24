@@ -89,7 +89,7 @@ else {
                         <label for="admin_contact" >Contact</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="admin_contact" name="admin_contact" class="form-control" required value="<?php echo $admin_contact; ?>" placeholder="Your position...">
+                        <input type="text" id="admin_contact" name="admin_contact" class="form-control" required value="<?php echo $admin_contact; ?>" placeholder="Your phone...">
                     </div>
                 </div>
 

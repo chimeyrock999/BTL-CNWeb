@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 16, 2022 at 04:22 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th2 24, 2022 lúc 11:53 AM
+-- Phiên bản máy phục vụ: 10.4.22-MariaDB
+-- Phiên bản PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,38 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `musicwebapp`
+-- Cơ sở dữ liệu: `musicwebapp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `albums`
+-- Cấu trúc bảng cho bảng `admins`
+--
+
+CREATE TABLE `admins` (
+  `admin_id` int(10) NOT NULL,
+  `admin_name` varchar(255) NOT NULL,
+  `admin_email` varchar(255) NOT NULL,
+  `admin_pass` varchar(255) NOT NULL,
+  `admin_image` text NOT NULL,
+  `admin_contact` varchar(255) NOT NULL,
+  `admin_country` text NOT NULL,
+  `admin_job` varchar(255) NOT NULL,
+  `admin_about` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `admins`
+--
+
+INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_image`, `admin_contact`, `admin_country`, `admin_job`, `admin_about`) VALUES
+(1, 'Trinh Van Thoai', 'admin@livemusic.com', 'e10adc3949ba59abbe56e057f20f883e', 'assets/admin_image/avatar.jpg', '033889xxxx', 'Vietnam', 'Developer', 'Student at Hanoi University of Science and Technology ');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `albums`
 --
 
 CREATE TABLE `albums` (
@@ -36,7 +61,7 @@ CREATE TABLE `albums` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `albums`
+-- Đang đổ dữ liệu cho bảng `albums`
 --
 
 INSERT INTO `albums` (`id`, `title`, `artist`, `genre`, `artworkPath`) VALUES
@@ -50,13 +75,12 @@ INSERT INTO `albums` (`id`, `title`, `artist`, `genre`, `artworkPath`) VALUES
 (11, 'Đừng gọi anh dậy', 4, 'Rap', 'assets\\images\\artworks\\dung-goi-anh-day.jpg'),
 (12, 'Từ chối nhẹ nhàng thôi', 3, 'Ballad', 'assets\\images\\artworks\\tu-choi-nhe-nhang-thoi.jpg'),
 (13, 'Gieo quẻ', 6, 'Pop', 'assets\\images\\artworks\\gieo-que-hoang-thuy-linh-den.jpg'),
-(14, 'Em đây chẳng phải Thúy Kiều', 6, 'Pop', 'assets\\images\\artworks\\em-day-chang-phai-thuy-kieu.jpg'),
-(15, 'tiny things', 7, 'Pop', 'assets\\images\\artworks\\tiny-things.jpg');
+(14, 'Em đây chẳng phải Thúy Kiều', 6, 'Pop', 'assets\\images\\artworks\\em-day-chang-phai-thuy-kieu.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artists`
+-- Cấu trúc bảng cho bảng `artists`
 --
 
 CREATE TABLE `artists` (
@@ -65,30 +89,30 @@ CREATE TABLE `artists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `artists`
+-- Đang đổ dữ liệu cho bảng `artists`
 --
 
 INSERT INTO `artists` (`id`, `name`) VALUES
-(1, 'Binz'),
-(2, 'Đen Vâu'),
 (3, 'Bích Phương'),
-(4, 'Phúc Du'),
-(5, 'Sơn Tùng MTP'),
-(6, 'Hoàng Thùy Linh'),
-(7, 'Thịnh Suy'),
-(8, 'Mr.Siro'),
-(9, 'Min'),
-(10, 'HIEUTHUHAI'),
+(1, 'Binz'),
+(16, 'Bray'),
 (11, 'Châu Đăng Khoa'),
+(10, 'HIEUTHUHAI'),
+(6, 'Hoàng Thùy Linh'),
+(14, 'Karik'),
 (12, 'Lil\'Wuyn'),
 (13, 'MCK'),
-(14, 'Karik'),
-(15, 'Wowy');
+(9, 'Min'),
+(8, 'Mr.Siro'),
+(4, 'Phúc Du'),
+(5, 'Sơn Tùng MTP'),
+(7, 'Thịnh Suy'),
+(2, 'Đen Vâu');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `likedsongs`
+-- Cấu trúc bảng cho bảng `likedsongs`
 --
 
 CREATE TABLE `likedsongs` (
@@ -97,18 +121,31 @@ CREATE TABLE `likedsongs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `likedsongs`
+-- Đang đổ dữ liệu cho bảng `likedsongs`
 --
 
 INSERT INTO `likedsongs` (`songid`, `owner`) VALUES
-(4, 'chimeyrock999'),
-(5, 'chimeyrock999'),
-(29, 'chimeyrock999');
+(1, 'chimeyrock3'),
+(4, 'chimeyrock3'),
+(5, 'chimeyrock3'),
+(17, 'trinhvanthoai'),
+(19, 'trinhvanthoai'),
+(22, 'chimeyrock3'),
+(22, 'trinhvanthoai'),
+(23, 'trinhvanthoai'),
+(24, 'trinhvanthoai'),
+(25, 'trinhvanthoai'),
+(26, 'trinhvanthoai'),
+(28, 'chimeyrock3'),
+(28, 'trinhvanthoai'),
+(30, 'chimeyrock3'),
+(30, 'trinhvanthoai'),
+(31, 'trinhvanthoai');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `playlists`
+-- Cấu trúc bảng cho bảng `playlists`
 --
 
 CREATE TABLE `playlists` (
@@ -120,17 +157,19 @@ CREATE TABLE `playlists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `playlists`
+-- Đang đổ dữ liệu cho bảng `playlists`
 --
 
 INSERT INTO `playlists` (`id`, `name`, `owner`, `date`, `artworkPath`) VALUES
-(106, 'Playlist #1', 'chimeyrock999', '2022-01-16 00:00:00', 'assets/images/icons/playlist.png'),
-(108, 'Playlist #1', 'chimeyrock1', '2022-01-16 00:00:00', 'assets/images/icons/playlist.png');
+(132, 'Playlist #1', 'trinhvanthoai', '2022-02-13 00:00:00', 'assets/images/icons/playlist.png'),
+(133, 'Playlist #1', 'chimeyrock3', '2022-02-15 00:00:00', 'assets/images/icons/playlist.png'),
+(134, 'Playlist #2', 'chimeyrock3', '2022-02-15 00:00:00', 'assets/images/icons/playlist.png'),
+(135, 'Playlist #3', 'chimeyrock3', '2022-02-15 00:00:00', 'assets/images/icons/playlist.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `playlistsongs`
+-- Cấu trúc bảng cho bảng `playlistsongs`
 --
 
 CREATE TABLE `playlistsongs` (
@@ -141,21 +180,26 @@ CREATE TABLE `playlistsongs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `playlistsongs`
+-- Đang đổ dữ liệu cho bảng `playlistsongs`
 --
 
 INSERT INTO `playlistsongs` (`id`, `songId`, `playlistId`, `playlistOrder`) VALUES
-(22, 5, 106, 0),
-(23, 4, 106, 1),
-(24, 6, 106, 2),
-(25, 27, 106, 3),
-(26, 25, 106, 4),
-(27, 20, 106, 5);
+(32, 31, 132, 0),
+(34, 15, 132, 2),
+(35, 38, 133, 0),
+(36, 38, 134, 0),
+(37, 32, 133, 1),
+(38, 32, 134, 1),
+(39, 37, 135, 0),
+(40, 35, 135, 1),
+(41, 34, 135, 2),
+(42, 6, 135, 3),
+(43, 2, 133, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `songs`
+-- Cấu trúc bảng cho bảng `songs`
 --
 
 CREATE TABLE `songs` (
@@ -171,39 +215,42 @@ CREATE TABLE `songs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `songs`
+-- Đang đổ dữ liệu cho bảng `songs`
 --
 
 INSERT INTO `songs` (`id`, `title`, `artist`, `album`, `genre`, `duration`, `path`, `albumOrder`, `plays`) VALUES
-(1, 'BIGCITYBOY', 1, 1, 'Rap', 233, 'assets\\music\\TOULIVER x BINZ - -BIGCITYBOI- (Official Music Video).mp3', 1, 64),
+(1, 'BIGCITYBOY', 1, 1, 'Rap', 233, 'assets/music/TOULIVER x BINZ - -BIGCITYBOI- (Official Music Video).mp3', 8, 68),
 (2, 'Chắc Ai Đó Sẽ Về (Sky Tour 2019)', 5, 3, 'Pop, Ballad', 283, 'assets\\music\\Chắc Ai Đó Sẽ Về (Sky Tour 2019).mp3', 6, 43),
-(4, 'Chạy Ngay Đi (Sky Tour 2019)', 5, 3, 'Pop, Ballad', 309, 'assets\\music\\Chạy Ngay Đi (Sky Tour 2019).mp3', 2, 54),
-(5, 'Sky Tour Intro', 5, 3, 'Rap', 209, 'assets\\music\\Sky Tour Intro.mp3', 1, 60),
-(6, 'Chúng Ta Không Thuộc Về Nhau (Sky Tour 2019)', 5, 3, 'Rap', 247, 'assets\\music\\Chúng Ta Không Thuộc Về Nhau (Sky Tour 2019).mp3', 3, 52),
-(15, 'Mười Năm ft. Ngọc Linh (Live at Show của Đen)', 2, 7, 'Rap', 285, 'assets\\music\\Mười Năm ft. Ngọc Linh (Live at Show của Đen).mp3', 1, 2),
+(4, 'Chạy Ngay Đi (Sky Tour 2019)', 5, 3, 'Pop, Ballad', 309, 'assets\\music\\Chạy Ngay Đi (Sky Tour 2019).mp3', 2, 55),
+(5, 'Sky Tour Intro', 5, 3, 'Rap', 209, 'assets\\music\\Sky Tour Intro.mp3', 1, 64),
+(6, 'Chúng Ta Không Thuộc Về Nhau (Sky Tour 2019)', 5, 3, 'Rap', 247, 'assets\\music\\Chúng Ta Không Thuộc Về Nhau (Sky Tour 2019).mp3', 3, 56),
+(15, 'Mười Năm ft. Ngọc Linh (Live at Show của Đen)', 2, 7, 'Rap', 285, 'assets\\music\\Mười Năm ft. Ngọc Linh (Live at Show của Đen).mp3', 1, 4),
 (16, 'Lộn Xộn II (Live at Show của Đen)', 2, 7, 'Rap', 148, 'assets\\music\\Lộn Xộn II (Live at Show của Đen ).mp3', 2, 5),
-(17, 'Nhiều Năm Nữa (Live at Show của Đen)', 2, 7, 'Rap', 199, 'assets\\music\\Nhiều Năm Nữa (Live at Show của Đen ).mp3', 3, 1),
-(18, 'Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen )', 2, 7, 'Rap', 188, 'assets\\music\\Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen ).mp3', 4, 2),
-(19, 'Đố em biết anh đang nghĩ gì (Live at Show của Đen )', 2, 7, 'Rap', 275, 'assets\\music\\Đố em biết anh đang nghĩ gì (Live at Show của Đen ).mp3', 5, 2),
-(20, 'Loving You Sunny (Live at Show của Đen )', 2, 7, 'Rap', 319, 'assets\\music\\Loving You Sunny (Live at Show của Đen ).mp3', 7, 1),
+(17, 'Nhiều Năm Nữa (Live at Show của Đen)', 2, 7, 'Rap', 199, 'assets\\music\\Nhiều Năm Nữa (Live at Show của Đen ).mp3', 3, 2),
+(18, 'Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen)', 2, 7, 'Rap', 188, 'assets\\music\\Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen ).mp3', 4, 2),
+(19, 'Đố em biết anh đang nghĩ gì (Live at Show của Đen)', 2, 7, 'Rap', 275, 'assets\\music\\Đố em biết anh đang nghĩ gì (Live at Show của Đen ).mp3', 5, 3),
 (21, 'Mơ (Live at Show của Đen)', 2, 7, 'Rap', 233, 'assets\\music\\Mơ (Live at Show của Đen).mp3', 6, 2),
-(22, 'Cho Tôi Lang Thang (Live at Show của Đen )', 2, 7, 'Rap', 272, 'assets\\music\\Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen ).mp3', 8, 1),
+(22, 'Cho Tôi Lang Thang (Live at Show của Đen)', 2, 7, 'Rap', 272, 'assets\\music\\Trời Ơi Con Chưa Muốn Chết (Live at Show của Đen ).mp3', 8, 4),
 (23, 'Anh Đếch Cần Gì Nhiều Ngoài Em (Live at Show của Đen)', 2, 7, 'Rap', 246, 'assets\\music\\Anh Đếch Cần Gì Nhiều Ngoài Em (Live at Show của Đen).mp3', 9, 2),
-(24, 'Đi Theo Bóng Mặt Trời (Live at Show của Đen)', 2, 7, 'Rap', 236, 'assets\\music\\Đi Theo Bóng Mặt Trời (Live at Show của Đen).mp3', 10, 1),
-(25, 'Bài Này Chill Phết (Live at Show của Đen)', 2, 7, 'Rap', 294, 'assets\\music\\Bài Này Chill Phết (Live at Show của Đen).mp3', 11, 2),
-(26, 'hai triệu năm ft. Biên (Live at Show của Đen)', 2, 7, 'Rap', 298, 'assets\\music\\hai triệu năm ft. Biên (Live at Show của Đen).mp3', 12, 2),
+(24, 'Đi Theo Bóng Mặt Trời (Live at Show của Đen)', 2, 7, 'Rap', 236, 'assets\\music\\Đi Theo Bóng Mặt Trời (Live at Show của Đen).mp3', 10, 4),
+(25, 'Bài Này Chill Phết (Live at Show của Đen)', 2, 7, 'Rap', 294, 'assets\\music\\Bài Này Chill Phết (Live at Show của Đen).mp3', 11, 4),
+(26, 'hai triệu năm ft. Biên (Live at Show của Đen)', 2, 7, 'Rap', 298, 'assets\\music\\hai triệu năm ft. Biên (Live at Show của Đen).mp3', 12, 3),
 (27, 'Đưa Nhau Đi Trốn ft. Linh Cáo (Live at Show của Đen)', 2, 7, 'Rap', 245, 'assets\\music\\Đưa Nhau Đi Trốn ft. Linh Cáo (Live at Show của Đen).mp3', 13, 1),
-(28, 'Ta Cứ Đi Cùng Nhau ft. Linh Cáo (Live at Show của Đen)', 2, 7, 'Rap', 346, 'assets\\music\\Ta Cứ Đi Cùng Nhau ft. Linh Cáo (Live at Show của Đen).mp3', 14, 1),
-(29, 'Cảm Ơn (Live at Show của Đen) [Prod. by Novmber]', 2, 7, 'Rap', 274, 'assets\\music\\Anh Đếch Cần Gì Nhiều Ngoài Em (Live at Show của Đen).mp3', 15, 1),
-(30, 'Trốn tìm', 2, 8, 'Rap', 248, 'assets\\music\\Trốn Tìm ft. MTV band.mp3', 1, 2),
-(31, 'Mang Tiền Về Cho Mẹ ft. Nguyên Thảo', 2, 9, 'Rap', 405, 'assets\\music\\Mang Tiền Về Cho Mẹ ft. Nguyên Thảo.mp3', 1, 2),
-(32, 'Đen x JustaTee - Đi Về Nhà', 2, 2, 'Rap', 0, 'assets\\music\\Đen x JustaTee - Đi Về Nhà.mp3', 1, 2),
-(33, 'Đen - Trời hôm nay nhiều mây cực!', 2, 10, 'Rap', 252, 'assets\\images\\artworks\\Đen - Trời hôm nay nhiều mây cực!.mp3', 1, 0);
+(28, 'Ta Cứ Đi Cùng Nhau ft. Linh Cáo (Live at Show của Đen)', 2, 7, 'Rap', 346, 'assets\\music\\Ta Cứ Đi Cùng Nhau ft. Linh Cáo (Live at Show của Đen).mp3', 14, 5),
+(29, 'Cảm Ơn (Live at Show của Đen) [Prod. by Novmber]', 2, 7, 'Rap', 274, 'assets\\music\\Anh Đếch Cần Gì Nhiều Ngoài Em (Live at Show của Đen).mp3', 15, 3),
+(30, 'Trốn tìm', 2, 8, 'Rap', 248, 'assets\\music\\Trốn Tìm ft. MTV band.mp3', 1, 6),
+(31, 'Mang Tiền Về Cho Mẹ ft. Nguyên Thảo', 2, 9, 'Rap', 405, 'assets\\music\\Mang Tiền Về Cho Mẹ ft. Nguyên Thảo.mp3', 1, 9),
+(32, 'Đen x JustaTee - Đi Về Nhà', 2, 2, 'Rap', 0, 'assets\\music\\Đen x JustaTee - Đi Về Nhà.mp3', 1, 4),
+(34, 'từ chối nhẹ nhàng thôi', 3, 12, 'Rap, Ballad', 250, 'assets/music/PHÚC DU feat. @BÍCH PHƯƠNG - từ chối nhẹ nhàng thôi (Official M-V).mp3', 1, 1),
+(35, 'Hoàng Thuỳ Linh & ĐEN - Gieo Quẻ (Casting Coins) ', 6, 13, 'Pop, Rap', 259, 'assets/music/Hoàng Thuỳ Linh & ĐEN - Gieo Quẻ (Casting Coins) - Official Music Video.mp3', 1, 1),
+(36, 'PHÚC DU - Đừng Gọi Anh Dậy', 4, 11, 'Rap', 245, 'assets/music/PHÚC DU - Đừng Gọi Anh Dậy (Official M-V).mp3', 1, 0),
+(37, 'Đen - Trời hôm nay nhiều mây cực!', 2, 10, 'Rap', 249, 'assets/music/Đen - Trời hôm nay nhiều mây cực! (M-V).mp3', 1, 0),
+(38, 'Hoàng Thùy Linh - Em Đây Chẳng Phải Thúy Kiều (I Am Not Thuy Kieu)', 6, 14, 'Pop', 212, 'assets/music/Hoàng Thùy Linh - Em Đây Chẳng Phải Thúy Kiều (I Am Not Thuy Kieu) - Official Lyrics Video.mp3', 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -218,46 +265,67 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `date`, `profilePic`) VALUES
-(2, 'chimeyrock1', 'Thoại', 'Trịnh Văn', 'trinhvanthoai99@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-03 00:00:00', 'assets/images/profile-pics/head_emerald.png'),
 (3, 'chimeyrock2', 'Văn Thoại', 'Trịnh', 'test1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-03 00:00:00', 'assets/images/profile-pics/head_emerald.png'),
-(4, 'chimeyrock999', 'Trịnh Văn', 'Thoại', 'trinhvanthoai@gmail.com', '585a37b786432d4f0f03473186b545b2', '2022-01-13 00:00:00', 'assets/images/profile-pics/head_emerald.png');
+(4, 'chimeyrock999', 'Trịnh Văn', 'Thoại', 'trinhvanthoai@gmail.com', '585a37b786432d4f0f03473186b545b2', '2022-01-13 00:00:00', 'assets/images/profile-pics/head_emerald.png'),
+(7, 'trinhvanthoai', 'Thoai', 'Trinh Van', 'trinhvanthoai1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-02-13 00:00:00', 'assets/images/profile-pics/head_emerald.png'),
+(8, 'chimeyrock3', 'Trinh', 'Van Thoai', 'trinhvanthoai3@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-02-14 00:00:00', 'assets/images/profile-pics/head_emerald.png');
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Cấu trúc bảng cho bảng `views`
+--
+
+CREATE TABLE `views` (
+  `id` int(11) NOT NULL,
+  `views` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `views`
+--
+
+INSERT INTO `views` (`id`, `views`) VALUES
+(1, 1265);
+
+--
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `albums`
+-- Chỉ mục cho bảng `albums`
 --
 ALTER TABLE `albums`
   ADD PRIMARY KEY (`id`),
   ADD KEY `artist` (`artist`);
 
 --
--- Indexes for table `artists`
+-- Chỉ mục cho bảng `artists`
 --
 ALTER TABLE `artists`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_name` (`name`) USING BTREE;
 
 --
--- Indexes for table `likedsongs`
+-- Chỉ mục cho bảng `likedsongs`
 --
 ALTER TABLE `likedsongs`
   ADD PRIMARY KEY (`songid`,`owner`),
-  ADD KEY `owner` (`owner`);
+  ADD KEY `likedsongs_ibfk_1` (`owner`);
 
 --
--- Indexes for table `playlists`
+-- Chỉ mục cho bảng `playlists`
 --
 ALTER TABLE `playlists`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `playlists_ibfk_2` (`owner`);
 
 --
--- Indexes for table `playlistsongs`
+-- Chỉ mục cho bảng `playlistsongs`
 --
 ALTER TABLE `playlistsongs`
   ADD PRIMARY KEY (`id`),
@@ -265,7 +333,7 @@ ALTER TABLE `playlistsongs`
   ADD KEY `playlistId` (`playlistId`);
 
 --
--- Indexes for table `songs`
+-- Chỉ mục cho bảng `songs`
 --
 ALTER TABLE `songs`
   ADD PRIMARY KEY (`id`),
@@ -274,84 +342,90 @@ ALTER TABLE `songs`
   ADD KEY `artist_2` (`artist`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Chỉ mục cho bảng `views`
+--
+ALTER TABLE `views`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `albums`
+-- AUTO_INCREMENT cho bảng `albums`
 --
 ALTER TABLE `albums`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `artists`
+-- AUTO_INCREMENT cho bảng `artists`
 --
 ALTER TABLE `artists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT for table `playlists`
+-- AUTO_INCREMENT cho bảng `playlists`
 --
 ALTER TABLE `playlists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
--- AUTO_INCREMENT for table `playlistsongs`
+-- AUTO_INCREMENT cho bảng `playlistsongs`
 --
 ALTER TABLE `playlistsongs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT for table `songs`
+-- AUTO_INCREMENT cho bảng `songs`
 --
 ALTER TABLE `songs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `albums`
+-- Các ràng buộc cho bảng `albums`
 --
 ALTER TABLE `albums`
   ADD CONSTRAINT `albums_ibfk_1` FOREIGN KEY (`artist`) REFERENCES `artists` (`id`);
 
 --
--- Constraints for table `likedsongs`
+-- Các ràng buộc cho bảng `likedsongs`
 --
 ALTER TABLE `likedsongs`
-  ADD CONSTRAINT `likedsongs_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`username`),
-  ADD CONSTRAINT `likedsongs_ibfk_2` FOREIGN KEY (`songid`) REFERENCES `songs` (`id`);
+  ADD CONSTRAINT `likedsongs_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`username`) ON DELETE CASCADE,
+  ADD CONSTRAINT `likedsongs_ibfk_2` FOREIGN KEY (`songid`) REFERENCES `songs` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `playlists`
+-- Các ràng buộc cho bảng `playlists`
 --
 ALTER TABLE `playlists`
-  ADD CONSTRAINT `playlists_ibfk_2` FOREIGN KEY (`owner`) REFERENCES `users` (`username`);
+  ADD CONSTRAINT `playlists_ibfk_2` FOREIGN KEY (`owner`) REFERENCES `users` (`username`) ON DELETE CASCADE;
 
 --
--- Constraints for table `playlistsongs`
+-- Các ràng buộc cho bảng `playlistsongs`
 --
 ALTER TABLE `playlistsongs`
-  ADD CONSTRAINT `playlistsongs_ibfk_1` FOREIGN KEY (`songId`) REFERENCES `songs` (`id`),
+  ADD CONSTRAINT `playlistsongs_ibfk_1` FOREIGN KEY (`songId`) REFERENCES `songs` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `playlistsongs_ibfk_2` FOREIGN KEY (`playlistId`) REFERENCES `playlists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `songs`
+-- Các ràng buộc cho bảng `songs`
 --
 ALTER TABLE `songs`
   ADD CONSTRAINT `songs_ibfk_1` FOREIGN KEY (`album`) REFERENCES `albums` (`id`),
